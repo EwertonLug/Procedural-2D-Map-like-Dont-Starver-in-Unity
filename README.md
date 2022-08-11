@@ -23,8 +23,20 @@ Depois de muito pesquisa e dor de cabeça consegui um resultado até que interes
 
 **RRT Algorithm(Adaptado):** Usado para criar os seeds dos Biomas.
 
+![Diagrama de Voronoi](Assets/_Project/Content/Github/RRT.jpeg "Rrt")
+
 **Diagrama de Voronoi: ** Usado para preencher os biomas.
 
+![Diagrama de Voronoi](Assets/_Project/Content/Github/Coloured_Voronoi_2D.svg.png "Diagrama de Voronoi")
+
 **Tilemasking:** Usado para saber qual tile instanciar com base nos vizinhos.
+
+![Tilemasking ](Assets/_Project/Content/Github/BitmaskRef.png "Bitmasking")
+
+
+# Resultado:
+
+![Resultado 2](Assets/_Project/Content/Github/Result1.jpeg "Result1")
+![Resultado 1](Assets/_Project/Content/Github/Result2.jpeg "Result2")
 
 
