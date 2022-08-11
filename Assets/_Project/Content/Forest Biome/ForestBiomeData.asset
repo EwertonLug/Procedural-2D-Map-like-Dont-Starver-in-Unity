@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56699902ec1e4ae4b9476b6b74a399a9, type: 3}
+  m_Name: ForestBiomeData
+  m_EditorClassIdentifier: 
+  _id: 1
+  _tilePrefab: {fileID: 5290484585350092749, guid: 0bc0993805cbfbf46b84bd7e35d9b708, type: 3}
+  tiles:
+  - {fileID: 11400000, guid: cecc45be315c653479292f53a5bbe048, type: 2}
+  _resourcesPrefab:
+  - {fileID: 7957882338326247809, guid: 4ee6a6ede66c8d747bb79f877d8ac72e, type: 3}
+  _resourcesCollectedPrefab:
+  - {fileID: 1974021776311770334, guid: db4993d57f8f0c64792626ad5d3ee671, type: 3}
+  _resourcePercent: 0.1
+  _resourceCollectedPercent: 0.01

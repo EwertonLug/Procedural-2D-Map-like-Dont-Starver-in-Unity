@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56699902ec1e4ae4b9476b6b74a399a9, type: 3}
+  m_Name: DesertBiomeData
+  m_EditorClassIdentifier: 
+  _id: 2
+  _tilePrefab: {fileID: 5290484585350092749, guid: 0bc0993805cbfbf46b84bd7e35d9b708, type: 3}
+  tiles:
+  - {fileID: 11400000, guid: b00da660932e52940b279dcd9960aa3e, type: 2}
+  _resourcesPrefab: []
+  _resourcesCollectedPrefab: []
+  _resourcePercent: 0
+  _resourceCollectedPercent: 0

@@ -1,0 +1,450 @@
+fileFormatVersion: 2
+guid: c27236863d808fe4a9be285036a23277
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8148817848804337408
+    second: Forest_Pack1_Granulado 30x_0
+  - first:
+      213: 8848464097947841411
+    second: Forest_Pack1_Granulado 30x_1
+  - first:
+      213: 5800515362156496854
+    second: Forest_Pack1_Granulado 30x_2
+  - first:
+      213: 7446488007910185278
+    second: Forest_Pack1_Granulado 30x_3
+  - first:
+      213: -309205589359308703
+    second: Forest_Pack1_Granulado 30x_4
+  - first:
+      213: -4193495661532917813
+    second: Forest_Pack1_Granulado 30x_5
+  - first:
+      213: 7623505488133414383
+    second: Forest_Pack1_Granulado 30x_6
+  - first:
+      213: -6393772082566441599
+    second: Forest_Pack1_Granulado 30x_7
+  - first:
+      213: -4230717759430394274
+    second: Forest_Pack1_Granulado 30x_8
+  - first:
+      213: 7100772560120274865
+    second: Forest_Pack1_Granulado 30x_9
+  - first:
+      213: -4713658115965015663
+    second: Forest_Pack1_Granulado 30x_10
+  - first:
+      213: 6248240050361731861
+    second: Forest_Pack1_Granulado 30x_11
+  - first:
+      213: -5816425753176670081
+    second: Forest_Pack1_Granulado 30x_12
+  - first:
+      213: -3321218787861731225
+    second: Forest_Pack1_Granulado 30x_13
+  - first:
+      213: -5782084355499087235
+    second: Forest_Pack1_Granulado 30x_14
+  - first:
+      213: -8502520966110227410
+    second: Forest_Pack1_Granulado 30x_15
+  - first:
+      213: -5828253214237730231
+    second: Forest_Pack1_Granulado 30x_16
+  - first:
+      213: -8527998175068476939
+    second: Forest_Pack1_Granulado 30x_17
+  - first:
+      213: 9217947604790167637
+    second: Forest_Pack1_Granulado 30x_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 444
+        width: 129
+        height: 225
+      alignment: 9
+      pivot: {x: 0.4871661, y: 0.010694037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0076851c8aa661170800000000000000
+      internalID: 8148817848804337408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_1
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 587
+        width: 128
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3837af5473f0cca70800000000000000
+      internalID: 8848464097947841411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 514
+        width: 111
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3951b7d36d375760800000000000000
+      internalID: 7446488007910185278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 187
+        width: 77
+        height: 238
+      alignment: 9
+      pivot: {x: 0.45037803, y: 0.58781564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf4037f9e5bdc5c0800000000000000
+      internalID: -4193495661532917813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_6
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 405
+        width: 70
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedde63b9d12cc960800000000000000
+      internalID: 7623505488133414383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_7
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 421
+        width: 124
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18551d3aa22c447a0800000000000000
+      internalID: -6393772082566441599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_8
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 400
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ef634fc987945c0800000000000000
+      internalID: -4230717759430394274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_9
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 320
+        width: 160
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf5fcc95030b8260800000000000000
+      internalID: 7100772560120274865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_13
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 186
+        width: 50
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5, y: 0.014754197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768e528eb19a8e1d0800000000000000
+      internalID: -3321218787861731225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_14
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 170
+        width: 133
+        height: 79
+      alignment: 9
+      pivot: {x: 0.531119, y: 0.049439635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a2229d9e8e1cfa0800000000000000
+      internalID: -5782084355499087235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 125
+        width: 49
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2450b7ca3af00a80800000000000000
+      internalID: -8502520966110227410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_16
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 31
+        width: 140
+        height: 98
+      alignment: 9
+      pivot: {x: 0.49280155, y: 0.016682956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ad450c492ed1fa0800000000000000
+      internalID: -5828253214237730231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Pack1_Granulado 30x_17
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 37
+        width: 192
+        height: 54
+      alignment: 9
+      pivot: {x: 0.48950234, y: 0.014778137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f92dd1d7d676a980800000000000000
+      internalID: -8527998175068476939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
