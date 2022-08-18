@@ -21,7 +21,7 @@ namespace Game.Map
                 Vector3 randomPosition = new Vector3(
                     UnityEngine.Random.Range(paddingRow, _mapRows - paddingRow),
                     UnityEngine.Random.Range(paddingColunm, _mapColunms - paddingColunm), 0);
-                biomes.SeedsPair.Add(new BiomeSeed(randomPosition, null), i);
+                biomes.SeedsPair.Add(new BiomeSeed(randomPosition), i);
 
             }
 
@@ -51,20 +51,30 @@ namespace Game.Map
                { root , 0 }
             };
 
+            List<Vector3> randomPoints = new List<Vector3>();
+
             for (int i = 0; i < treeSize; i++)
             {
+                Vector3 randomPoint = Vector3.zero;
 
-                Vector3 randomPoint = new Vector3(
+                while (!randomPoints.Contains(randomPoint))
+                {
+                    randomPoint = new Vector3(
                    UnityEngine.Random.Range(paddingRow, points.GetLength(0) - paddingRow),
                    UnityEngine.Random.Range(paddingColunm, points.GetLength(1) - paddingColunm), 0);
+                    randomPoints.Add(randomPoint);
+                }
 
-                BiomeSeed newRandomSeed = new BiomeSeed(randomPoint, null);
+
+                BiomeSeed newRandomSeed = new BiomeSeed(randomPoint);
                 BiomeSeed pointFar = nearest(randomPoint, rrt);
 
                 Vector3 direction = newRandomSeed.Localization - pointFar.Localization;
                 Vector3 newPoint = pointFar.Localization + direction.normalized * 2;
 
-                BiomeSeed newSeed = new BiomeSeed(newPoint, null);
+                newRandomSeed.SetParent(pointFar);
+
+                BiomeSeed newSeed = new BiomeSeed(newPoint);
 
                 if (!rrt.ContainsKey(newRandomSeed))
                 {
@@ -81,7 +91,6 @@ namespace Game.Map
                         if (!rrt.ContainsKey(newSeed))
                         {
                             rrt.Add(newSeed, rrt[newRandomSeed]);
-                            newSeed.SetParent(newRandomSeed);
                         }
                     }
                     else
@@ -89,23 +98,20 @@ namespace Game.Map
                         if (!rrt.ContainsKey(newSeed))
                         {
                             rrt.Add(newSeed, rrt[pointFar]);
-                            newSeed.SetParent(pointFar);
                         }
-   
+
                     }
 
                     newPoint += direction.normalized * 2;
-                    newSeed = new BiomeSeed(newPoint, null);
+                    newSeed = new BiomeSeed(newPoint);
                     distance = Vector3.Distance(newPoint, randomPoint);
-                    Debug.DrawLine(pointFar.Localization, newPoint, Color.red, 100f);
-                    Debug.DrawLine(newPoint, randomPoint, Color.red, 100f);
 
                 }
 
             }
             BiomeSeed getCenterPoint(Vector2[,] points)
             {
-                return new BiomeSeed(points[points.GetLength(0) / 2, points.GetLength(1) / 2], null);
+                return new BiomeSeed(points[points.GetLength(0) / 2, points.GetLength(1) / 2]);
             }
 
             BiomeSeed nearest(Vector2 randomPoint, Dictionary<BiomeSeed, int> rrt)
@@ -149,10 +155,9 @@ namespace Game.Map
         public Vector3 Localization => _localization;
         public BiomeSeed Parent => _parent;
 
-        public BiomeSeed(Vector3 localization, BiomeSeed parent)
+        public BiomeSeed(Vector3 localization)
         {
             _localization = localization;
-            _parent = parent;
         }
 
         public void SetParent(BiomeSeed parent)

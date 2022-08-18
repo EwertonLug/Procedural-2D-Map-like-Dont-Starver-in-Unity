@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
 namespace Game.Map
@@ -37,7 +38,36 @@ namespace Game.Map
             GenerateResourceOfBiomes();
             UpdateNeighbors();
             UpdateBitmasks();
+            GenerateWays();
+        }
 
+        private void GenerateWays()
+        {
+            GameObject worldWay = new GameObject();
+            worldWay.name = "WorldWay";
+
+            foreach (KeyValuePair<BiomeSeed, int> item in _biomes.SeedsPair)
+            {
+
+                if (item.Key.Parent != null)
+                {
+                    GameObject way = new GameObject();
+                    way.name = $"{item.Key.Localization} <=> {item.Key.Parent.Localization}";
+                    LineRenderer lineRenderer = way.AddComponent<LineRenderer>();
+                    lineRenderer.alignment = LineAlignment.TransformZ;
+                    lineRenderer.material = _biomesData[item.Value].WayMaterial;
+                    lineRenderer.textureMode = LineTextureMode.Tile;
+                    lineRenderer.sortingLayerName = _biomesData[item.Value].WaySortingLayer;
+                    lineRenderer.sortingOrder = _biomesData[item.Value].WayOrderInLayer;
+                    Vector3 startPos = new Vector3(item.Key.Parent.Localization.x, item.Key.Parent.Localization.y, -.01f);
+                    Vector3 EndPos = new Vector3(item.Key.Localization.x, item.Key.Localization.y, -.01f);
+                    lineRenderer.SetPosition(0, startPos);
+                    lineRenderer.SetPosition(1, EndPos);
+
+                    way.transform.SetParent(worldWay.transform);
+                }
+
+            }
         }
 
         private Vector2[,] CreateGrid(int numRows, int numColunms)
@@ -73,7 +103,7 @@ namespace Game.Map
 
                             if (resource != null)
                             {
-                                Instantiate(resource, new Vector3(t.X, t.Y, 0), Quaternion.identity, t.transform);
+                                Instantiate(resource, new Vector3(t.X, t.Y, -0.02f), Quaternion.identity, t.transform);
                             }
                         }
                     }
@@ -256,6 +286,13 @@ namespace Game.Map
 
         private void OnDrawGizmosSelected()
         {
+            DrawBiomeSeeds();
+
+        }
+
+        private void DrawBiomeSeeds()
+        {
+    
             foreach (KeyValuePair<BiomeSeed, int> item in _biomes.SeedsPair)
             {
 
@@ -263,10 +300,25 @@ namespace Game.Map
                 {
                     Gizmos.color = Color.red;
                     Gizmos.DrawSphere(item.Key.Parent.Localization, .2f);
+                    Gizmos.DrawSphere(item.Key.Localization, .2f);
+
+                    GUIStyle gUIStyle = new GUIStyle();
+                    gUIStyle.normal.textColor = Color.red;
+                    Handles.Label(item.Key.Parent.Localization, $"Seed:{item.Key.Parent.Localization} Type:{item.Value}", gUIStyle);
+                    Handles.Label(item.Key.Localization, $"Seed:{item.Key.Localization} Type:{item.Value}", gUIStyle);
+                    Debug.DrawLine(item.Key.Parent.Localization, item.Key.Localization, Color.red, 100f);
+
+                }
+                else
+                {
+                    Gizmos.color = Color.yellow;
+                    Gizmos.DrawSphere(item.Key.Localization, .2f);
+                    GUIStyle gUIStyle = new GUIStyle();
+                    gUIStyle.normal.textColor = Color.yellow;
+                    Handles.Label(item.Key.Localization, $"Type:{item.Value}", gUIStyle);
                 }
 
             }
-
         }
     }
 }

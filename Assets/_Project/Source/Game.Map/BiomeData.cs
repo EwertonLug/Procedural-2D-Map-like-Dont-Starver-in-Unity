@@ -12,6 +12,11 @@ namespace Game.Map
         [Header("Default Tile Prefab")]
         [SerializeField] private GameObject _tilePrefab;
 
+        [Header("Way Material")]
+        [SerializeField] string _waySortingLayer = "Default";
+        [SerializeField] int _wayOrderInLayer;
+        [SerializeField] private Material _wayMaterial;
+
         [Header("Tiles Types (Selected by Perlin Noise)")]
         public TileData[] tiles;
 
@@ -25,6 +30,9 @@ namespace Game.Map
         [Range(0, 1)]
         [SerializeField] private float _resourceCollectedPercent;
         public GameObject TilePrefab => _tilePrefab;
+        public Material WayMaterial => _wayMaterial;
+        public string WaySortingLayer => _waySortingLayer;
+        public int WayOrderInLayer => _wayOrderInLayer;
         public int Id => _id;
 
         public TileData GetTileById(int index)

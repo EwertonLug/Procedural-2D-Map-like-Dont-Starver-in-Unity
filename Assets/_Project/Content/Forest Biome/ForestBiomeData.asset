@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 1
   _tilePrefab: {fileID: 5290484585350092749, guid: 0bc0993805cbfbf46b84bd7e35d9b708, type: 3}
+  _waySortingLayer: Default
+  _wayOrderInLayer: 1
+  _wayMaterial: {fileID: 2100000, guid: 05341226af1d04a4b90172282aa335fb, type: 2}
   tiles:
   - {fileID: 11400000, guid: cecc45be315c653479292f53a5bbe048, type: 2}
   _resourcesPrefab:
