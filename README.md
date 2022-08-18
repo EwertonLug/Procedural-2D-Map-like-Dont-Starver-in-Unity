@@ -18,14 +18,14 @@ Depois de muito pesquisa e dor de cabeça consegui um resultado até que interes
 
 # Ténicas utilizadas:
 
-**Perlin Noise: ** Usado para instanciar os Tiles dos biomas. Foi criada uma função para converte o valor de PerlinNoise para Id (`GetIdUsingPerlin`)
+**Perlin Noise:** Usado para instanciar os Tiles dos biomas. Foi criada uma função para converte o valor de PerlinNoise para Id (`GetIdUsingPerlin`)
 
 
 **RRT Algorithm(Adaptado):** Usado para criar os seeds dos Biomas.
 
 ![Diagrama de Voronoi](Assets/_Project/Content/Github/RRT.jpeg "Rrt")
 
-**Diagrama de Voronoi: ** Usado para preencher os biomas.
+**Diagrama de Voronoi:** Usado para preencher os biomas.
 
 ![Diagrama de Voronoi](Assets/_Project/Content/Github/Coloured_Voronoi_2D.svg.png "Diagrama de Voronoi")
 
