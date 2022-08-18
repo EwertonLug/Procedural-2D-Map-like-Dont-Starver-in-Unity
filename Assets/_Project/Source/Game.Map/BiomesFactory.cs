@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace Game.Map
                 Vector3 randomPosition = new Vector3(
                     UnityEngine.Random.Range(paddingRow, _mapRows - paddingRow),
                     UnityEngine.Random.Range(paddingColunm, _mapColunms - paddingColunm), 0);
-                biomes.SeedsPair.Add(randomPosition, i);
+                biomes.SeedsPair.Add(new BiomeSeed(randomPosition, null), i);
 
             }
 
@@ -37,18 +38,18 @@ namespace Game.Map
             return biomes;
         }
 
-        private static Dictionary<Vector3, int> CreateRRT(Vector2[,] points, int treeSize, int amountOfBiomes)
+
+        private static Dictionary<BiomeSeed, int> CreateRRT(Vector2[,] points, int treeSize, int amountOfBiomes)
         {
             var paddingRow = points.GetLength(0) / 6;
             var paddingColunm = points.GetLength(1) / 6;
 
-            Vector2 root = getCenterPoint(points);
+            BiomeSeed root = getCenterPoint(points);
 
-
-            Dictionary<Vector3, int> rrt = new Dictionary<Vector3, int>
-        {
-            { root, 0 }
-        };
+            Dictionary<BiomeSeed, int> rrt = new Dictionary<BiomeSeed, int>
+            {
+               { root , 0 }
+            };
 
             for (int i = 0; i < treeSize; i++)
             {
@@ -57,57 +58,65 @@ namespace Game.Map
                    UnityEngine.Random.Range(paddingRow, points.GetLength(0) - paddingRow),
                    UnityEngine.Random.Range(paddingColunm, points.GetLength(1) - paddingColunm), 0);
 
-                Vector3 pointFar = nearest(root, randomPoint, rrt);
+                BiomeSeed newRandomSeed = new BiomeSeed(randomPoint, null);
+                BiomeSeed pointFar = nearest(randomPoint, rrt);
 
-                Vector3 direction = randomPoint - pointFar;
-                Vector3 newPoint = pointFar + direction.normalized * 2;
+                Vector3 direction = newRandomSeed.Localization - pointFar.Localization;
+                Vector3 newPoint = pointFar.Localization + direction.normalized * 2;
 
-                if (!rrt.ContainsKey(randomPoint))
+                BiomeSeed newSeed = new BiomeSeed(newPoint, null);
+
+                if (!rrt.ContainsKey(newRandomSeed))
                 {
-                    rrt.Add(randomPoint, UnityEngine.Random.Range(0, amountOfBiomes));
+                    rrt.Add(newRandomSeed, UnityEngine.Random.Range(0, amountOfBiomes));
                 }
 
-                var distance = Vector2.Distance(newPoint, randomPoint);
+                var distance = Vector2.Distance(newSeed.Localization, newRandomSeed.Localization);
 
                 while (distance >= 5)
                 {
-                    if (Vector3.Distance(newPoint, pointFar) > Vector3.Distance(newPoint, randomPoint))
+                    if (Vector3.Distance(newSeed.Localization, pointFar.Localization) > Vector3.Distance(newSeed.Localization, newRandomSeed.Localization))
                     {
-                        if (!rrt.ContainsKey(newPoint))
-                            rrt.Add(newPoint, rrt[randomPoint]);
+
+                        if (!rrt.ContainsKey(newSeed))
+                        {
+                            rrt.Add(newSeed, rrt[newRandomSeed]);
+                            newSeed.SetParent(newRandomSeed);
+                        }
                     }
                     else
                     {
-                        if (!rrt.ContainsKey(newPoint))
-                            rrt.Add(newPoint, rrt[pointFar]);
-
-
+                        if (!rrt.ContainsKey(newSeed))
+                        {
+                            rrt.Add(newSeed, rrt[pointFar]);
+                            newSeed.SetParent(pointFar);
+                        }
+   
                     }
 
-
-
                     newPoint += direction.normalized * 2;
+                    newSeed = new BiomeSeed(newPoint, null);
                     distance = Vector3.Distance(newPoint, randomPoint);
-                    Debug.DrawLine(pointFar, newPoint, Color.red, 100f);
+                    Debug.DrawLine(pointFar.Localization, newPoint, Color.red, 100f);
                     Debug.DrawLine(newPoint, randomPoint, Color.red, 100f);
 
                 }
 
             }
-            Vector2 getCenterPoint(Vector2[,] points)
+            BiomeSeed getCenterPoint(Vector2[,] points)
             {
-                return points[points.GetLength(0) / 2, points.GetLength(1) / 2];
+                return new BiomeSeed(points[points.GetLength(0) / 2, points.GetLength(1) / 2], null);
             }
 
-            Vector2 nearest(Vector2 root, Vector2 randomPoint, Dictionary<Vector3, int> rrt)
+            BiomeSeed nearest(Vector2 randomPoint, Dictionary<BiomeSeed, int> rrt)
             {
-                float distance = Vector2.Distance(randomPoint, root);
+                float distance = Vector2.Distance(randomPoint, root.Localization);
 
-                Vector2 pointFar = root;
+                BiomeSeed pointFar = rrt.Keys.FirstOrDefault();
 
-                foreach (KeyValuePair<Vector3, int> point in rrt)
+                foreach (KeyValuePair<BiomeSeed, int> point in rrt)
                 {
-                    var tempDistance = Vector2.Distance(randomPoint, point.Key);
+                    var tempDistance = Vector2.Distance(randomPoint, point.Key.Localization);
 
                     if (tempDistance < distance)
                     {
@@ -125,11 +134,31 @@ namespace Game.Map
 
     public class Biomes
     {
-        public Dictionary<Vector3, int> SeedsPair;
+        public Dictionary<BiomeSeed, int> SeedsPair;
 
         public Biomes()
         {
-            SeedsPair = new Dictionary<Vector3, int>();
+            SeedsPair = new Dictionary<BiomeSeed, int>();
         }
+    }
+    public class BiomeSeed
+    {
+        private Vector3 _localization;
+        private BiomeSeed _parent;
+
+        public Vector3 Localization => _localization;
+        public BiomeSeed Parent => _parent;
+
+        public BiomeSeed(Vector3 localization, BiomeSeed parent)
+        {
+            _localization = localization;
+            _parent = parent;
+        }
+
+        public void SetParent(BiomeSeed parent)
+        {
+            _parent = parent;
+        }
+
     }
 }

@@ -26,8 +26,6 @@ namespace Game.Map
         private Tile[,] _tiles;
         Vector2[,] _points;
 
-
-
         private async void Start()
         {
             _perlinNoise.UpdateOrign();
@@ -86,7 +84,7 @@ namespace Game.Map
         {
             _biomesGroup = new Dictionary<int, GameObject>();
 
-            foreach (KeyValuePair<Vector3, int> _seedsPair in _biomes.SeedsPair)
+            foreach (KeyValuePair<BiomeSeed, int> _seedsPair in _biomes.SeedsPair)
             {
 
 
@@ -105,7 +103,7 @@ namespace Game.Map
 
             }
 
-            void CreateTileTypeGroup(KeyValuePair<Vector3, int> _seedsPair, GameObject biomeGroup)
+            void CreateTileTypeGroup(KeyValuePair<BiomeSeed, int> _seedsPair, GameObject biomeGroup)
             {
                 foreach (TileData tileType in _biomesData[_seedsPair.Value].tiles)
                 {
@@ -173,11 +171,11 @@ namespace Game.Map
             }
             int closestPointIndex = 0;
 
-            var distance = Vector3.Distance(point, _biomes.SeedsPair.Keys.FirstOrDefault());
+            var distance = Vector3.Distance(point, _biomes.SeedsPair.Keys.FirstOrDefault().Localization);
 
-            foreach (KeyValuePair<Vector3, int> _seedsPair in _biomes.SeedsPair)
+            foreach (KeyValuePair<BiomeSeed, int> _seedsPair in _biomes.SeedsPair)
             {
-                var tempDistance = Vector3.Distance(point, _seedsPair.Key);
+                var tempDistance = Vector3.Distance(point, _seedsPair.Key.Localization);
                 if (tempDistance < distance)
                 {
                     distance = tempDistance;
@@ -258,15 +256,16 @@ namespace Game.Map
 
         private void OnDrawGizmosSelected()
         {
-
-            foreach (KeyValuePair<Vector3, int> item in _biomes.SeedsPair)
+            foreach (KeyValuePair<BiomeSeed, int> item in _biomes.SeedsPair)
             {
 
-                Gizmos.color = Color.red;
-                Gizmos.DrawSphere(item.Key, .2f);
+                if (item.Key.Parent != null)
+                {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawSphere(item.Key.Parent.Localization, .2f);
+                }
 
             }
-
 
         }
     }
